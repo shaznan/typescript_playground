@@ -1,15 +1,8 @@
 import React from "react";
+import AddToList from "./AddToList";
+import { IState as Iprops } from "../App"; //importing types so that don't have to repeat
 
-interface Iprops {
-  people: {
-    name: string;
-    age: number;
-    url: string;
-    note?: string;
-  }[];
-}
-
-//** Refcatoring into function 
+//** Refcatoring into function
 //**Render list returns an array of JSX elements */
 
 const List: React.FC<Iprops> = ({ people }) => {
@@ -31,6 +24,7 @@ const List: React.FC<Iprops> = ({ people }) => {
   return (
     <div>
       <ul>{renderList()}</ul>
+      {/* <AddToList /> */}
     </div>
   );
 };

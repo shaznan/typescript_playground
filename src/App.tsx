@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import List from "./component/List";
+import AddToList from "./component/AddToList";
+
+export interface IState {
+  people: {
+    name: string;
+    age: number;
+    url: string;
+    note?: string;
+  }[];
+}
 
 function App() {
   //  *Type inference, (typescript will define the types for you)
@@ -46,14 +56,6 @@ function App() {
   // });
 
   //**Doing the same above with TS Interface (most effective) */
-  interface IState {
-    people: {
-      name: string;
-      age: number;
-      url: string;
-      note?: string;
-    }[];
-  }
 
   const [people, setPeople] = useState<IState["people"]>([
     {
@@ -72,6 +74,7 @@ function App() {
     <div className="App">
       <h1>People invited me to party </h1>
       <List people={people} />
+      <AddToList people={people} setPeople={setPeople} />
     </div>
   );
 }
